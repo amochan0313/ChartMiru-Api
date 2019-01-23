@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+    api:
+        build: .
+        container_name: chartmiru_api
+        volumes:
+            - type: 'bind'
+              source: '/Users/yuichiro.takarada/chartmiru/api.chartmiru'
+              target: '/root/go/src/chartmiru'
+#    db:
+#        build: ./Database/mysql
+#        volumes:
+#            - 'mysql-datastore:/var/lib/mysql'
+#        environment:
+#            MYSQL_ROOT_PASSWORD: dragonwwwwww
+#            MYSQL_DATABASE: chartmiru
+#            MYSQL_USER: chartmiru
+#            MYSQL_PASSWORD: Ch@rtmiru0313
+#        container_name: chartmiru_db
+#volumes:
+#    mysql-datastore:
