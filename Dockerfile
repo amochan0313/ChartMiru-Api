@@ -5,8 +5,8 @@ apt-get -y upgrade
 RUN apt-get -y install \
 net-tools \
 golang \
-nginx \
-git
+git \
+vim
 
 # コンテナ内で必要なスクリプトを実行
 COPY docker-entrypoint.sh /usr/local/bin
@@ -16,5 +16,5 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 RUN go get -u github.com/beego/bee && \
 go get -u github.com/astaxie/beego
 
-CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
+CMD ["tail", "-f", "/dev/null"]
 # TODO:バージョンの固定
