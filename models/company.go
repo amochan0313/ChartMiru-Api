@@ -1,7 +1,6 @@
 package models
 
 import (
-	// "strconv"
 	"time"
 )
 type Company struct {
@@ -10,6 +9,7 @@ type Company struct {
 	Market   string `orm:"size(50)"`
 	Initialized bool
 	Created_at time.Time `orm:"auto_now_add;type(datetime)"`
+	Stocks	[]*Stock `orm:"-"`
 }
 
 func init() {

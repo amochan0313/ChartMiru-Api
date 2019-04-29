@@ -22,7 +22,7 @@ func GetCompanies() ([]*models.Company, error) {
 	return companies, err
 }
 
-func GetCompany(id int) (models.Company, error) {
+func GetCompany(id uint) (models.Company, error) {
 	var company models.Company
 	qb, _ := orm.NewQueryBuilder("mysql")
 	qb.Select("*").

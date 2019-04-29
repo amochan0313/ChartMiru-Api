@@ -4,7 +4,7 @@ import (
 	"chartmiru/repository/company"
 	// "github.com/astaxie/beego/logs"
 	// "encoding/json"d
-	// "strconv"
+	"reflect"
 
 	_ "fmt"
 	"chartmiru/models"
@@ -25,6 +25,7 @@ type CompanyController struct {
 func (c *CompanyController) Get() {
 	// 単体取得
 	if id, _ := c.GetInt(":id"); id != 0 {
+		var id uint = uint(id)
 		company, _ := c.getCompanyItem(id)
     	c.response.Data    = company
   	  	c.response.Code    = 200
@@ -41,11 +42,11 @@ func (c *CompanyController) Get() {
 	c.ServeJSON()
 }
 
-func (c *CompanyController) getCompanyItem(companyId int) (models.Company, error) {
+func (c *CompanyController) getCompanyItem(companyId uint) (models.Company, error) {
 	company, err := repository.GetCompany(companyId)
 	
 	emptyCompany := models.Company{}
-	if ; company == emptyCompany {
+	if reflect.DeepEqual(company, emptyCompany) {
 		c.Abort("CompanyNotFound")
 	}
 

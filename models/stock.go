@@ -11,7 +11,7 @@ func init() {
 
 type Stock struct {
 	Id       uint64 
-	Company_id uint
+	Company_id uint64
 	Open uint
 	Close uint
 	Volume uint
